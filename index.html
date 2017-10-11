@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>We should giphy that</title>
+</head>
+<body>
+
+<p id="here">Here</p>
+
+
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	
+var APIkey = "66D2fxHXGww74SSArzcPYdsmxGEHlvBB";
+
+var queryURL = "http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key="+APIkey+"&limit=5"
+
+$.ajax({
+	url: queryURL,
+	method: "GET"
+}).done(function(response){
+	console.log(response);
+	console.log(response.data.data.bitley_gif_url);
+	$("#here").html(response.data.data.bitley_gif_url)
+})
+
+</script>
+
+</body>
+</html>
