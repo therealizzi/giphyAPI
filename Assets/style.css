@@ -1,0 +1,12 @@
+
+  .gifRating {
+    position: fixed;
+    float: right;
+    background-color: grey;
+    color: white;
+  }
+
+  button {
+    color: white;
+    background-color: #5c969c;
+  }
