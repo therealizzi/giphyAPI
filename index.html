@@ -1,31 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>We should giphy that</title>
+  <meta charset="utf-8">
+  <title>The Magical Duck Button</title>
 </head>
+
 <body>
 
-<p id="here">Here</p>
+<h3>Add an animal here:</h3>
+<input type="text" name="btnValue" id="btnValue">
+<button class="newBtn">Submit</button>
+<p id=apndBtnHere></p>
+<p id="apndGifHere"></p>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
 
+//Need to declare variables:
 
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-	
-var APIkey = "66D2fxHXGww74SSArzcPYdsmxGEHlvBB";
+var newBtn = "";
+var newGif = "";
+var postGif = "";
+var makeBtn = "";
+var length = 10;
+var apiKey = "dc6zaTOxFJmzC";
+var topics = ["Mario","Luigi","Bowser"]
+var topic = "cats"
+var callURL = "http://api.giphy.com/v1/gifs/search?q="+topic+"&api_key="+apiKey+"&limit="+length
 
-var queryURL = "http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key="+APIkey+"&limit=5"
+//Need a loop to append buttons for each string in topics[]
 
-$.ajax({
-	url: queryURL,
-	method: "GET"
-}).done(function(response){
-	console.log(response);
-	console.log(response.data.data.bitley_gif_url);
-	$("#here").html(response.data.data.bitley_gif_url)
-})
+$(document).ready(function(){
+
+  for (i = 0; i < topics.length; i++) {
+    var makeBtn = $("<button>");
+    makeBtn.text(topics[i]);
+    makeBtn.attr("id", topics[i]);
+    makeBtn.attr("class", "getgifs");
+    $("#apndBtnHere").prepend(makeBtn); 
+  }
+
+  //Need an onclick event to trigger ajax call and pull data and assign to var newGif
+
+  console.log(callURL)
+
+  $(document).on('click','.getgifs',function(event){
+    $.ajax({
+      url : callURL,
+      method : "GET"
+    }).done(function(response){
+
+      console.log(response)
+
+      for (i = 0; i < length; i++) {
+
+        newGif = response.data[i].images.fixed_height.url;
+        postGif = $("<img>");
+        postGif.attr("src", newGif);
+        postGif.attr("alt", "a silly gif");
+        $("#apndGifHere").prepend(postGif);
+
+        newRating = response.data[i].rating;
+        postRating = $("<il>");
+        postRating.html("Rated: "+newRating);
+        postRating.attr("class", "gifRating");
+        $("#apndGifHere").prepend(postRating);
+      }
+    });
+  });
+
+  //Need a "createBtn()" function to generate buttons
+
+  function createBtn(){
+    var makeBtn = $("<button>"+newBtn+"</button>");
+    makeBtn.attr("id",newBtn)
+    makeBtn.attr("class", "getgifs")
+    $("#apndBtnHere").prepend(makeBtn);
+  };
+
+  //Need a button on('click') function to store the input value in a btnValue variable and trigger next function "createBtn()"
+  
+  $(".newBtn").click(function(){
+    newBtn = $("#btnValue").val();
+    createBtn()
+  });
+
+});
 
 </script>
 
+<style type="text/css">
+ 
+  .gifRating {
+    position: fixed;
+    float: right;
+  }
+
+  button {
+    color: white;
+    background-color: #5c969c;
+  }
+
+
+</style>
+
+
 </body>
+
 </html>
