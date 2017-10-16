@@ -1,19 +1,26 @@
 
+.addButtons {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.getgifs {
+	margin-top: 15px;
+	margin-left: 15px;
+}
+
 .gifRating {
-	margin-top: 10px;
-	width: 20%;
+	padding: 2px;
+	margin-top: 15px;
+	margin-left: 15px;
 	position: absolute;
 	float: left;
-	background-color: grey;
-	color: white;
-	padding: 2px;
-	margin-left: 2px;
 }
 
 .postGif {
-	padding-top: 15px;
-	margin-top: 15px;
-	margin-left: 2px;
+	padding-top: 20px;
+	margin-top: 20px;
+	margin-left: 15px;
 }
 
 .apndDiv {

@@ -8,7 +8,7 @@ var postGif = "";
 var makeBtn = "";
 var length = 10;
 var apiKey = "";
-var topics = ["Mario","Luigi","Bowser"]
+var topics = ["Lara Croft","Yoshi","Agent 47","Sub-Zero","Fox McCloud","Jacob Tyler", "Nathan Drake","Mario","Luigi","Bowser","Sonic","Link","Big Boss"]
 var topic = "bats"
 var callURLa = "http://api.giphy.com/v1/gifs/search?q="
 var callURLb = "&api_key=dc6zaTOxFJmzC&limit=10"
@@ -49,29 +49,26 @@ $(document).ready(function(){
 
       for (i = 0; i < length; i++) {
 
-        var appenderDivO = $("<div>");
-        var appenderDivC = $("</div>");
+        var appenderDiv = $("<div>");
 
-        appenderDivO.attr("class", "apndDiv");
+        appenderDiv.attr("class", "apndDiv");
 
-        $("#apndGifHere").append(appenderDivO)
+        $("#apndGifHere").append(appenderDiv)
 
         newRating = response.data[i].rating;
         postRating = $("<div>");
         postRating.html("Rated: "+newRating);
         postRating.attr("class", "gifRating");
-        appenderDivO.append(postRating);
+        appenderDiv.append(postRating);
 
         newGifd = response.data[i].images.fixed_height_small.url;
         newGifs = response.data[i].images.fixed_height_small_still.url;
         postGif = $("<img>");
         postGif.attr("src", newGifs);
         postGif.attr("alt", "a silly gif");
+        postGif.attr("data-state", "still");
         postGif.attr("class", "postGif");
-        appenderDivO.append(postGif);
-
-        postRating.append(appenderDivC);
-
+        appenderDiv.append(postGif);
       }
     });
   });
@@ -92,7 +89,7 @@ $(document).ready(function(){
     createBtn()
   });
 
-  $(".gifRating").on("click", function(){
+  $(document).on("click",".postGif", function(){
 
     var state = $(this).attr("data-state")
 
@@ -106,7 +103,7 @@ $(document).ready(function(){
       $(this).attr("data-state","still")
     }
 
-  })
+  });
 
 
 });
