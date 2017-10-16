@@ -6,7 +6,7 @@ var postGif = "";
 var makeBtn = "";
 var length = 10;
 var apiKey = "";
-var topics = ["Yoshi","Mario","Luigi","Bowser","Princess Peach","Koopa","Toad","Wario"]
+var topics = ["Princess Peach","Koopa","Toad","Wario","Yoshi","Mario","Luigi","Bowser"]
 var topic = ""
 var callURLa = "http://api.giphy.com/v1/gifs/search?q="
 var callURLb = "&api_key=dc6zaTOxFJmzC&limit=10"
@@ -59,7 +59,7 @@ $(document).ready(function(){
         postRating.attr("class", "gifRating");
         appenderDiv.append(postRating);
 
-        newGifs = response.data[i].images.fixed_height_small_still.url;
+        newGifs = response.data[i].images.fixed_height_still.url;
         postGif = $("<img>");
         postGif.attr("src", newGifs);
         postGif.attr("alt", "a silly gif");

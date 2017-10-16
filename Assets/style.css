@@ -9,9 +9,7 @@ body {
 .newBtn {
 	font-family: 'Rubik Mono One', sans-serif;
 	text-shadow: -1px 0 #968a59, 0 1px #968a59, 1px 0 #968a59, 0 -1px #968a59;
-
 	font-size: 20px;
-
 	background-color: #ffc61e;
 	color: white;
 	border-color: #968a59;
@@ -21,7 +19,6 @@ body {
 	font-family: 'Rubik Mono One', sans-serif;
 	text-shadow: -1px 0 #968a59, 0 1px #968a59, 1px 0 #968a59, 0 -1px #968a59;
 	font-size: 15px;
-
 	margin-top: 15px;
 	margin-left: 15px;
 	background-color: #ffc61e;
@@ -35,7 +32,6 @@ body {
 	margin-left: 15px;
 	position: absolute;
 	float: left;
-
 	text-shadow: -1px 0 #968a59, 0 1px #968a59, 1px 0 #968a59, 0 -1px #968a59;
 	color: white;
 	border-color: #968a59;
@@ -43,11 +39,15 @@ body {
 
 .postGif {
 	padding-top: 20px;
-	padding-color:;
 	margin-top: 20px;
 	margin-left: 15px;
 }
 
 .apndDiv {
 	float: left;
+}
+
+.addsomething {
+	color: white;
+	margin-top: 20px;
 }
