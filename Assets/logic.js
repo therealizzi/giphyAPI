@@ -2,14 +2,12 @@
 //Need to declare variables:
 
 var newBtn = "";
-var newGifd = "";
-var newGifs = "";
 var postGif = "";
 var makeBtn = "";
 var length = 10;
 var apiKey = "";
-var topics = ["Lara Croft","Yoshi","Agent 47","Sub-Zero","Fox McCloud","Jacob Tyler", "Nathan Drake","Mario","Luigi","Bowser","Sonic","Link","Big Boss"]
-var topic = "bats"
+var topics = ["Yoshi","Mario","Luigi","Bowser","Princess Peach","Koopa","Toad","Wario"]
+var topic = ""
 var callURLa = "http://api.giphy.com/v1/gifs/search?q="
 var callURLb = "&api_key=dc6zaTOxFJmzC&limit=10"
 var callURL = "http://api.giphy.com/v1/gifs/search?q="+topic+"&api_key=dc6zaTOxFJmzC&limit=10"
@@ -53,7 +51,7 @@ $(document).ready(function(){
 
         appenderDiv.attr("class", "apndDiv");
 
-        $("#apndGifHere").append(appenderDiv)
+        $("#apndGifHere").prepend(appenderDiv)
 
         newRating = response.data[i].rating;
         postRating = $("<div>");
@@ -61,7 +59,6 @@ $(document).ready(function(){
         postRating.attr("class", "gifRating");
         appenderDiv.append(postRating);
 
-        newGifd = response.data[i].images.fixed_height_small.url;
         newGifs = response.data[i].images.fixed_height_small_still.url;
         postGif = $("<img>");
         postGif.attr("src", newGifs);
@@ -89,21 +86,19 @@ $(document).ready(function(){
     createBtn()
   });
 
-  $(document).on("click",".postGif", function(){
+  $(this).on("click",".postGif", function(){
 
     var state = $(this).attr("data-state")
 
-        console.log(state)
+    var src = $(this).attr("src")
 
     if (state === "still"){
-      $(this).attr("src", $(this).attr(newGifd))
+      $(this).attr("src", src)
       $(this).attr("data-state","animate")
     } else {
-      $(this).attr("src",$(this).attr(newGifs))
+      $(this).attr("src", src.replace('_s',''))
       $(this).attr("data-state","still")
     }
-
   });
-
 
 });
