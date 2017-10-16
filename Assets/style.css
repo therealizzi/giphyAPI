@@ -1,8 +1,21 @@
 
-  .gifRating {
-    position: absolute;
-    float: left;
-    background-color: grey;
-    color: white;
-  }
+.gifRating {
+	margin-top: 10px;
+	width: 20%;
+	position: absolute;
+	float: left;
+	background-color: grey;
+	color: white;
+	padding: 2px;
+	margin-left: 2px;
+}
 
+.postGif {
+	padding-top: 15px;
+	margin-top: 15px;
+	margin-left: 2px;
+}
+
+.apndDiv {
+	float: left;
+}

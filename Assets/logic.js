@@ -44,23 +44,34 @@ $(document).ready(function(){
 
       console.log(response)
 
-    //NEed to clear the existing gifs to make room for the new ones
+    //Need to clear the existing gifs to make room for the new ones
     $("#apndGifHere").html("");
 
       for (i = 0; i < length; i++) {
+
+        var appenderDivO = $("<div>");
+        var appenderDivC = $("</div>");
+
+        appenderDivO.attr("class", "apndDiv");
+
+        $("#apndGifHere").append(appenderDivO)
+
+        newRating = response.data[i].rating;
+        postRating = $("<div>");
+        postRating.html("Rated: "+newRating);
+        postRating.attr("class", "gifRating");
+        appenderDivO.append(postRating);
 
         newGifd = response.data[i].images.fixed_height_small.url;
         newGifs = response.data[i].images.fixed_height_small_still.url;
         postGif = $("<img>");
         postGif.attr("src", newGifs);
         postGif.attr("alt", "a silly gif");
-        $("#apndGifHere").prepend(postGif);
+        postGif.attr("class", "postGif");
+        appenderDivO.append(postGif);
 
-        newRating = response.data[i].rating;
-        postRating = $("<il>");
-        postRating.html("Rated: "+newRating);
-        postRating.attr("class", "gifRating");
-        $("#apndGifHere").prepend(postRating);
+        postRating.append(appenderDivC);
+
       }
     });
   });
