@@ -1,5 +1,5 @@
 
-//Need to declare global variables:
+//These are the global variables
 var newBtn = "";
 var postGif = "";
 var makeBtn = "";
@@ -28,7 +28,7 @@ function displayButtons(){
   };
 }; 
 
-//This pulls gifs from the url, based on clicks
+//This onclick event pulls gifs from the url
 $(document).on('click','.getgifs', function(event){
 
   //This gets the id of the button pressed
@@ -53,7 +53,7 @@ $(document).on('click','.getgifs', function(event){
 //This appends gifs to the DOM
 function apndGif(){
 
-  //This clears the existing gifs to make room for the new ones
+  //This clears any existing gifs
   $("#apndGifHere").html("");
 
     //This loops through the display object 
@@ -95,6 +95,11 @@ $(".newBtn").click(function(){
   newBtn = $("#btnValue").val();
   topics.push(newBtn);
   createBtn();
+});
+
+//This stops the dom reload on the form submission
+$(".newBtn").click(function(e){
+  e.preventDefault();
 });
 
 //This changes the data-state of the gif
