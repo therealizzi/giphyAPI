@@ -1,4 +1,3 @@
-
 //These are the global variables
 var newBtn = "";
 var postGif = "";
