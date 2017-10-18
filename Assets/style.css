@@ -13,6 +13,11 @@ body {
 	background-color: #ffc61e;
 	color: white;
 	border-color: #968a59;
+	margin-left: 40px;
+}
+
+#btnValue {
+	margin-left: 40px;
 }
 
 .getgifs {
@@ -28,13 +33,12 @@ body {
 
 .gifRating {
 	padding: 2px;
-	margin-top: 15px;
+	margin-top: 5px;
 	margin-left: 15px;
 	position: absolute;
 	float: left;
 	text-shadow: -1px 0 #968a59, 0 1px #968a59, 1px 0 #968a59, 0 -1px #968a59;
 	color: white;
-	border-color: #968a59;
 }
 
 .postGif {
@@ -50,4 +54,5 @@ body {
 .addsomething {
 	color: white;
 	margin-top: 20px;
+	margin-left: 40px;
 }
