@@ -7,7 +7,7 @@ var apiKey = "";
 var response = "";
 var topics = ["Princess Peach","Koopa","Toad","Wario","Yoshi","Mario","Luigi","Bowser"];
 var topic = "";
-var callURLa = "http://api.giphy.com/v1/gifs/search?q=";
+var callURLa = "https://api.giphy.com/v1/gifs/search?q=";
 var callURLb = "&api_key=dc6zaTOxFJmzC&limit=10&rating=pg";
 
 //This starts the program, once the DOM is loaded
